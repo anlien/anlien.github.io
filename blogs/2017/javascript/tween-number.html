@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+    <script src="./libs/jquery.js"></script>
+</head>
+<body>	
+	<div id="animated-number-demo">
+	  <input v-model.number="number" type="number" step="20">
+	  <p id="animatedNumber"></p>
+	</div>
+	<script type="text/javascript">
+	$(function(){
+		init();
+
+		function init(){
+			changeNumber(100,0);
+			animate();
+		}
+		function animate(){
+			if(TWEEN.update()){
+				requestAnimationFrame(animate)
+			}
+		}
+
+		function changeNumber(newValue,oldValue){
+			new TWEEN.Tween({ tweeningNumber: oldValue })
+			.easing(TWEEN.Easing.Quadratic.Out)
+			.to({ tweeningNumber:newValue },500)
+			.onUpdate(function(){
+				console.log(this.tweeningNumber)
+				$("#animatedNumber").text(this.tweeningNumber.toFixed(0))
+			}).start()
+		}
+		
+	})
+	</script>
+</body>
+</html>

@@ -26,6 +26,7 @@
 通常一个特定的字体家族仅会包含少数的可用重量。若一个重量所指定的字形不存在，则应当使用相近重量的字形。通常，较重的重量会映射到更重的重量、较轻的重量会映射到更轻的重量（精确定义参见下面的字体匹配章节）。
 
 
+
 IE 8 
 Certain combinations of weights don't work together when linked into the same font-family name. Using variation-specific names is a workaround for this problem as well.[参考](https://helpx.adobe.com/typekit/using/css-selectors.html)
 
@@ -36,6 +37,7 @@ Once the font family's weights are mapped onto the CSS scale, missing weights ar
 * If the desired weight is greater than 500, weights above desired weight are checked in ascending order followed by weights below the desired weight in descending order until a match is found.
 * If the desired weight is 400, 500 is checked first and then the rule for desired weights less than 400 is used.
 * If the desired weight is 500, 400 is checked first and then the rule for desired weights less than 400 is used.
+
 
 注意w3c css 2.2有一段如下描述：
 There is no guarantee that there will be a darker face for each of the 'font-weight' values; for example, some fonts may have only a normal and a bold face, while others may have eight face weights. There is no guarantee on how a UA will map font faces within a family to weight values. The only guarantee is that a face of a given value will be no less dark than the faces of lighter values.

@@ -1,0 +1,31 @@
+
+### Route context
+{
+  "meta":{},
+  "path":"/optional-params/foo",
+  hash:"",
+  query:{},
+  params:{},
+  fullPath:'optional-params/foo',
+  matched:[
+    {
+      path:"/optional-params/:foo?",
+      regex:{
+         keys:[{
+            name:"foo",
+            prefix:"/",
+            delimiter:"/",
+            option:false,
+            repeat:false,
+            partial:false,
+            asterisk:false,
+            pattern:"[\\/]+?"
+        }]
+      },
+      components:{},
+      instances:{},
+      meta:{},
+      props:{}
+    }
+  ]
+}
