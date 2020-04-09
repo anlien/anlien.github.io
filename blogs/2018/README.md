@@ -1,5 +1,6 @@
 
 # 目录
+
 ## 6月
 * [360浏览器页面空白](./6/360浏览器页面空白)
 * [font-weight](./6/font-weight)
@@ -27,7 +28,6 @@
 * [关于deno与node的争论](./10/关于deno与node的争论)
 
 ## 11月
-* [example/logger](./11/example/logger/index.html)
 * [创建网站的操作](./11/创建网站的操作)
 * [状态码](./11/状态码)
 * [react渲染顺序](./11/react渲染顺序)

@@ -1,7 +1,3 @@
-# code snippet
-* [loading](./css/loading/review_past.html)
-* [flow](./css/制作流程引导)
-  
 # javascript
 * [一些算式](./javascript/一些算式)
 * [js对象复制](./javascript/js对象复制)
