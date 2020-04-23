@@ -14,7 +14,8 @@
 * [递归](./blogs/2020/4/递归)
 * [相等与全等](./blogs/2020/4/相等与全等)
 * [八皇后](./blogs/2020/4/八皇后)
-* [静态样式](./blogss/2020/static)
+* [静态样式](./blogs/2020/static)
+* [Flexbox](https://www.cnblogs.com/anlen/p/10572266.html)
 
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
