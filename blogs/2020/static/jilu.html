@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        !function (e, t) { function n() { t.body ? t.body.style.fontSize = 12 * o + "px" : t.addEventListener("DOMContentLoaded", n) } function i(t) { var t = t ? t : 750, n = e.innerWidth / t * 100; return e.innerWidth > t ? (n = 50, d.style.maxWidth = t + "px", d.style.margin = "0 auto", void (d.style.fontSize = "100px")) : void (d.style.fontSize = n + "px") } var d = t.documentElement, o = e.devicePixelRatio || 1; if (n(), i(750), e.addEventListener("resize", function () { i(750) }), e.addEventListener("pageshow", function (e) { e.persisted && i(750) }), o >= 2) { var a = t.createElement("body"), r = t.createElement("div"); r.style.border = ".5px solid transparent", a.appendChild(r), d.appendChild(a), 1 === r.offsetHeight && d.classList.add("hairlines"), d.removeChild(a) } }(window, document);
+    </script>
+    <title>Document</title>
+    <style type="text/css">
+        .v2-payment-record {
+            padding: .28rem .3rem;
+            font-size: .32rem;
+            color: rgba(64, 64, 64, 1);
+        }
+
+        .arrows-left {
+            display: inline-block;
+            height: .24rem;
+            color: #BFBFBF;
+            float: right;
+            margin-top: .12rem;
+        }
+
+        .v2-payment-record-detail {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .4);
+            z-index: 10;
+            display: flex;
+        }
+
+        .payment-record {
+            width: 5.4rem;
+            background-color: #fff;
+            border-radius: .16rem;
+            margin: auto;
+        }
+
+        h3 {
+            font-size: .34rem;
+            color: rgba(51, 51, 51, 1);
+            text-align: center;
+            position: relative;
+            padding: .6rem .4rem .4rem .4rem;
+            margin: 0;
+        }
+
+        .record-close-btn {
+            position: absolute;
+            top: .4rem;
+            right: .4rem;
+            width: .24rem;
+            color: #DDD;
+        }
+
+        .payment-record-items {
+            overflow: auto;
+            overflow-x: hidden;
+            padding: 0 .4rem;
+            max-height: 8rem;
+        }
+
+        .payment-record-items :not(:last-child) .record-item-dashed {
+            position: absolute;
+            left: 0;
+            top: .05rem;
+            bottom: -.04rem;
+            /*高度与section挂钩*/
+            border-left: 1px dashed #BFBFBF;
+
+        }
+
+        .payment-record-items :last-child .record-item-dashed {
+            display: none;
+        }
+
+        .record-node {
+            width: .16rem;
+            height: .16rem;
+            background: rgba(216, 216, 216, 1);
+            border-radius: .08rem;
+            position: absolute;
+            left: 0;
+            top: .05rem;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .record-node-content {
+            position: absolute;
+            font-size: .18rem;
+            font-weight: 400;
+            color: white;
+            background-color: #404040;
+            border-radius: .11rem;
+            padding: .04rem .04rem;
+            white-space: pre;
+            font-style: normal;
+            transform: translateX(-30%);
+        }
+
+        .payment-record-item {
+            font-size: .26rem;
+            font-weight: 400;
+            color: rgba(64, 64, 64, 1);
+            line-height: .28rem;
+            padding-bottom: .4rem;
+            padding-left: .3rem;
+            position: relative;
+        }
+
+        .payment-record-content {
+            font-size: .26rem;
+            color: rgba(64, 64, 64, 1);
+            line-height: .36rem;
+            margin-bottom: .1rem;
+            margin-top: .04rem;
+        }
+
+        .payment-record-date {
+            font-size: .26rem;
+            font-weight: 400;
+            color: rgba(191, 191, 191, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class='v2-payment-record-detail'>
+        <!-- <div class='v2-payment-record'>支付记录
+            <svg viewBox="64 64 896 896" onClick={this.onShowRecordDetailEvent} focusable="false" class="arrows-left"
+                data-icon="right" fill="currentColor" aria-hidden="true">
+                <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z">
+                </path>
+            </svg>
+        </div> -->
+        <div class='payment-record'>
+            <h3>支付记录<svg viewBox="64 64 896 896" focusable="false" class="record-close-btn" fill="currentColor"
+                    aria-hidden="true">
+                    <path
+                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z">
+                    </path>
+                </svg></h3>
+            <div class='payment-record-items'>
+                <!-- <div class='record-item-dashed'></div> -->
+                <section class='payment-record-item'>
+                    <p class='payment-record-content'>含车款¥20,000.00+刷卡手续费¥150.00=总计¥20150.00</p>
+                    <i class='record-node'><span class="record-node-content">首款</span></i><span class='record-item-dashed'></span>
+                    <span class='payment-record-date'>2020-04-02 14:00:20</span>
+                </section>
+                <section class='payment-record-item'>
+                    <p class='payment-record-content'>含车款¥20,000.00+刷卡手续费¥150.00=总计¥20150.00</p>
+                    <i class='record-node'></i><span class='record-item-dashed'></span>
+                    <span class='payment-record-date'>2020-04-02 14:00:20</span>
+                </section>
+                <section class='payment-record-item'>
+                    <p class='payment-record-content'>含车款¥20,000.00+刷卡手续费¥150.00=总计¥20150.00</p>
+                    <i class='record-node'></i><span class='record-item-dashed'></span>
+                    <span class='payment-record-date'>2020-04-02 14:00:20</span>
+                </section>
+                <section class='payment-record-item'>
+                    <p class='payment-record-content'>含车款¥20,000.00+刷卡手续费¥150.00=总计¥20150.00</p>
+                    <i class='record-node'></i><span class='record-item-dashed'>尾款</span>
+                    <span class='payment-record-date'>2020-04-02 14:00:20</span>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
