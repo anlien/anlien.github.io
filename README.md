@@ -16,6 +16,7 @@
 * [八皇后](./blogs/2020/4/八皇后)
 * [静态样式](./blogs/2020/static)
 * [Flexbox](https://www.cnblogs.com/anlen/p/10572266.html)
+* [思想与语言](./blogs/2020/4/思想与语言)
 
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
@@ -24,12 +25,3 @@
 
 # 资料
 * [docs/Web/Events](https://developer.mozilla.org/zh-CN/docs/Web/Events)
-
-# 定位
-
-> * 程序 = 算法 + 数据结构
-> * 软件 = 程序 + 软件工程
-> * 软件公司 = 软件 + 商业模式
-> * 往往软件工程的质量直接决定软件的质量，商业模式的优劣决定了一个公司的成败
-
-软件的质量决定 **研发** 的成本。
