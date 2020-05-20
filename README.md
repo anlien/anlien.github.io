@@ -17,6 +17,7 @@
 * [静态样式](./blogs/2020/static)
 * [Flexbox](https://www.cnblogs.com/anlen/p/10572266.html)
 * [思想与语言](./blogs/2020/4/思想与语言)
+* [归并排序](./blogs/2020/5/排序)
 
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
