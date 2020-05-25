@@ -22,7 +22,9 @@
 * [快速排序](./blogs/2020/5/分而治之_快速排序)
 * [套路](./blogs/2020/5/套路)
 * [维护](./blogs/2020/5/维护)
-  
+* [背包问题](https://www.yuque.com/alien-ax3ws/cmoq0h/pnt25w)
+* [最长公共子序列问题](https://www.yuque.com/alien-ax3ws/cmoq0h/neugy8)
+    
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
 * [二月抽奖活动](https://h5.xin.com/app/spring_2020)
