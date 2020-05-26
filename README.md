@@ -24,6 +24,7 @@
 * [维护](./blogs/2020/5/维护)
 * [背包问题](https://www.yuque.com/alien-ax3ws/cmoq0h/pnt25w)
 * [最长公共子序列问题](https://www.yuque.com/alien-ax3ws/cmoq0h/neugy8)
+* [动态规划](./blogs/2020/5/动态规划)
     
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
