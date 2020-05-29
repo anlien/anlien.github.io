@@ -25,7 +25,10 @@
 * [背包问题](https://www.yuque.com/alien-ax3ws/cmoq0h/pnt25w)
 * [最长公共子序列问题](https://www.yuque.com/alien-ax3ws/cmoq0h/neugy8)
 * [动态规划](./blogs/2020/5/动态规划)
-    
+* [贪心活动选择](https://www.yuque.com/alien-ax3ws/cmoq0h/tipv1y)
+* [理念转换](./blogs/2020/5/工作的理念转换)
+* [es6一些技巧](./blogs/2020/5/es6一些技巧)
+  
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
 * [二月抽奖活动](https://h5.xin.com/app/spring_2020)
