@@ -143,6 +143,24 @@ var arr = [ 'a', ['b',[ 'c', ['d', 'e']]]];
 var gen = iterArr(arr);
 arr = [...gen];                        // ["a", "b", "c", "d", "e"]
 ```
+#### 不要重用生成器
+生成器不应该重用，即使for...of循环的提前终止，例如通过break关键字。在退出循环后，生成器关闭，并尝试再次迭代，不会产生任何进一步的结果。
+```js
+var gen = (function *(){
+    yield 1;
+    yield 2;
+    yield 3;
+})();
+for (let o of gen) {
+    console.log(o);
+    break;//关闭生成器
+} 
+
+//生成器不应该重用，以下没有意义！
+for (let o of gen) {
+    console.log(o);
+}
+```
 
 ## 示例
 ### separate scope
@@ -403,6 +421,14 @@ function(){
   return f(6) === 5;
 }
 ```
+### no "prototype" property
+```js
+function(){
+  var a = () => 5;
+  return !a.hasOwnProperty("prototype");
+}
+```
+
 ## class
 ### lexical "super" binding in methods
 ```js
@@ -433,6 +459,19 @@ function(){
     && new C().method() === 2;
 }
 ```
+### computed accessor properties
+```js
+function(){
+  var garply = "foo", grault = "bar", baz = false;
+  class C {
+    get [garply]() { return "foo"; }
+    set [grault](x) { baz = x; }
+  }
+  new C().bar = true;
+  return new C().foo === "foo" && baz;
+}
+```
+
 ### class name is lexically scoped
 ```js
 function(){
@@ -473,6 +512,15 @@ function(){
   return !C.prototype.propertyIsEnumerable("foo") && !C.propertyIsEnumerable("bar");
 }
 ```
+### extends
+```js
+function(){
+  class B {}
+  class C extends B {}
+  return new C() instanceof B
+    && B.isPrototypeOf(C);
+}
+```
 ### extends null
 ```js
 function(){
@@ -483,3 +531,161 @@ function(){
     && Object.getPrototypeOf(C.prototype) === null;
 }
 ```
+
+## super
+### in methods, property access
+```js
+function(){
+  class B {}
+  B.prototype.qux = "foo";
+  B.prototype.corge = "baz";
+  class C extends B {
+    quux(a) { return super.qux + a + super["corge"]; }
+  }
+  C.prototype.qux = "garply";
+  return new C().quux("bar") === "foobarbaz";
+}
+```
+### in methods, method calls
+```js
+function(){
+  class B {
+    qux(a) { return "foo" + a; }
+  }
+  class C extends B {
+    qux(a) { return super.qux("bar" + a); }
+  }
+  return new C().qux("baz") === "foobarbaz";
+}
+```
+### method calls use correct "this" binding
+```js
+function(){
+  class B {
+    qux(a) { return this.foo + a; }
+  }
+  class C extends B {
+    qux(a) { return super.qux("bar" + a); }
+  }
+  var obj = new C();
+  obj.foo = "foo";
+  return obj.qux("baz") === "foobarbaz";
+}
+```
+### constructor calls use correct "new.target" binding
+```js
+function(){
+  var passed;
+  class B {
+    constructor() { passed = (new.target === C); }
+  }
+  class C extends B {
+    constructor() { super(); }
+  }
+  new C();
+  return passed;
+}
+```
+## generators
+### basic functionality
+```js
+function(){
+  function * generator(){
+    yield 5; yield 6;
+  };
+  var iterator = generator();
+  var item = iterator.next();
+  var passed = item.value === 5 && item.done === false;
+  item = iterator.next();
+  passed    &= item.value === 6 && item.done === false;
+  item = iterator.next();
+  passed    &= item.value === undefined && item.done === true;
+  return passed;
+}
+```
+### correct "this" binding
+```js
+function(){
+  function * generator(){
+    yield this.x; yield this.y;// 添加了this
+  };
+  var iterator = { g: generator, x: 5, y: 6 }.g();
+  var item = iterator.next();
+  var passed = item.value === 5 && item.done === false;
+  item = iterator.next();
+  passed    &= item.value === 6 && item.done === false;
+  item = iterator.next();
+  passed    &= item.value === undefined && item.done === true;
+  return passed;
+}
+```
+### sending
+```js
+function(){
+  var sent;
+  function * generator(){
+    sent = [yield 5, yield 6];
+  };
+  var iterator = generator();
+  iterator.next();
+  iterator.next("foo");
+  iterator.next("bar");
+  return sent[0] === "foo" && sent[1] === "bar";
+}
+```
+## Map
+### Map.prototype.set returns this
+```js
+function(){
+  var map = new Map();
+  return map.set(0, 0) === map;
+}
+```
+## Proxy
+```js
+function(){
+  var proxied = { };
+  var proxy = Object.create(new Proxy(proxied, {
+    get: function (t, k, r) {
+      return t === proxied && k === "foo" && r === proxy && 5;
+    }
+  }));
+  return proxy.foo === 5;
+}
+``` 
+## String
+```js
+// 正常情况下，你也许不需要将 String.raw() 当作函数调用。
+// 但是为了模拟 `t${0}e${1}s${2}t` 你可以这样做:
+String.raw({ raw: 'test' }, 0, 1, 2); // 't0e1s2t'
+// 注意这个测试, 传入一个 string, 和一个类似数组的对象
+// 下面这个函数和 `foo${2 + 3}bar${'Java' + 'Script'}baz` 是相等的.
+String.raw({
+  raw: ['foo', 'bar', 'baz'] 
+}, 2 + 3, 'Java' + 'Script'); // 'foo5barJavaScriptbaz'
+```
+## Object
+```js
+var obj = Object.create({ a: "qux", d: "qux" });
+obj.a = "foo"; obj.b = "bar"; obj.c = "baz";
+var v = Object.values(obj);
+Array.isArray(v) && String(v) === "foo,bar,baz"; //true
+```
+* [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+### object rest properties
+```js
+function(){
+  var {a, ...rest} = {a: 1, b: 2, c: 3};
+  return a === 1 && rest.a === undefined && rest.b === 2 && rest.c === 3;
+}
+```
+
+```js
+var { a, ...rest } = { b: 2, a: 1, c: 3 };
+console.log(rest);//{b:2,c:3}
+```
+
+## 参考
+* [for...of](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of)
+* [for...in](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in)
+* [hasOwnProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
