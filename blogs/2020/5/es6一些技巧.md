@@ -70,6 +70,7 @@ console.log(merged.get(3)); // three
 ### yield*
 * [Operators/yield](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield)
 * [Operators/yield*](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/yield*)
+
 ```js
 function* anotherGenerator(i) {
   yield i + 1;
@@ -91,7 +92,9 @@ console.log(gen.next().value); // 12
 console.log(gen.next().value); // 13
 console.log(gen.next().value); // 20
 ```
+
 #### 传递参数
+
 ```js
 function *createIterator() {
     let first = yield 1;
@@ -107,7 +110,9 @@ console.log(iterator.next(4));   // "{ value: 6, done: false }"
 console.log(iterator.next(5));   // "{ value: 8, done: false }"
 console.log(iterator.next());    // "{ value: undefined, done: true }"
 ```
+
 #### 显示返回
+
 ```js
 function* yieldAndReturn() {
   yield "Y";
@@ -373,6 +378,7 @@ function(){
   return (scopes[0]() === "a" && scopes[1]() === "b");
 }
 ```
+
 ### temporal dead zone
 ```js
 // (function (a = function () { return typeof b === 'undefined'; }) {
@@ -449,6 +455,7 @@ function(){
 ```
 
 ### computed prototype methods
+
 ```js
 function(){
   var foo = "method";
@@ -460,6 +467,7 @@ function(){
 }
 ```
 ### computed accessor properties
+
 ```js
 function(){
   var garply = "foo", grault = "bar", baz = false;
@@ -503,6 +511,7 @@ function(){
 // console.log(C === undefined && M());
 ```
 ### methods aren't enumerable
+
 ```js
 function(){
   class C {
@@ -513,6 +522,7 @@ function(){
 }
 ```
 ### extends
+
 ```js
 function(){
   class B {}
@@ -522,6 +532,7 @@ function(){
 }
 ```
 ### extends null
+
 ```js
 function(){
   class C extends null {
@@ -534,6 +545,7 @@ function(){
 
 ## super
 ### in methods, property access
+
 ```js
 function(){
   class B {}
@@ -547,6 +559,7 @@ function(){
 }
 ```
 ### in methods, method calls
+
 ```js
 function(){
   class B {
@@ -559,6 +572,7 @@ function(){
 }
 ```
 ### method calls use correct "this" binding
+
 ```js
 function(){
   class B {
@@ -573,6 +587,7 @@ function(){
 }
 ```
 ### constructor calls use correct "new.target" binding
+
 ```js
 function(){
   var passed;
@@ -588,6 +603,7 @@ function(){
 ```
 ## generators
 ### basic functionality
+
 ```js
 function(){
   function * generator(){
@@ -604,6 +620,7 @@ function(){
 }
 ```
 ### correct "this" binding
+
 ```js
 function(){
   function * generator(){
@@ -620,6 +637,7 @@ function(){
 }
 ```
 ### sending
+
 ```js
 function(){
   var sent;
@@ -635,6 +653,7 @@ function(){
 ```
 ## Map
 ### Map.prototype.set returns this
+
 ```js
 function(){
   var map = new Map();
@@ -642,6 +661,7 @@ function(){
 }
 ```
 ## Proxy
+
 ```js
 function(){
   var proxied = { };
@@ -654,6 +674,7 @@ function(){
 }
 ``` 
 ## String
+
 ```js
 // 正常情况下，你也许不需要将 String.raw() 当作函数调用。
 // 但是为了模拟 `t${0}e${1}s${2}t` 你可以这样做:
@@ -665,6 +686,7 @@ String.raw({
 }, 2 + 3, 'Java' + 'Script'); // 'foo5barJavaScriptbaz'
 ```
 ## Object
+
 ```js
 var obj = Object.create({ a: "qux", d: "qux" });
 obj.a = "foo"; obj.b = "bar"; obj.c = "baz";
@@ -672,7 +694,9 @@ var v = Object.values(obj);
 Array.isArray(v) && String(v) === "foo,bar,baz"; //true
 ```
 * [参考](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+
 ### object rest properties
+
 ```js
 function(){
   var {a, ...rest} = {a: 1, b: 2, c: 3};
