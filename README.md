@@ -32,6 +32,7 @@
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
 * [二月抽奖活动](https://h5.xin.com/app/spring_2020)
+* B端门店项目
 
 
 # 资料
