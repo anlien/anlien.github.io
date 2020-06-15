@@ -28,12 +28,14 @@
 * [贪心活动选择](https://www.yuque.com/alien-ax3ws/cmoq0h/tipv1y)
 * [理念转换](./blogs/2020/5/工作的理念转换)
 * [es6一些技巧](./blogs/2020/5/es6一些技巧)
+* [变量声明](https://www.tslang.cn/docs/handbook/variable-declarations.html)
   
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
 * [二月抽奖活动](https://h5.xin.com/app/spring_2020)
 
-
 # 资料
 * [docs/Web/Events](https://developer.mozilla.org/zh-CN/docs/Web/Events)
 * [开发环境](./blogs/2020/6/开发工具)
+* [前端流程](./blogs/2020/6/前端流程)
+* [JsBridge文档](./blogs/2020/6/JsBridge文档)
