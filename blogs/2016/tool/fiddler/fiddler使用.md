@@ -4,6 +4,7 @@
 
 ### 认识fiddler
 - **工作原理**
+  
 <img src="./resource/images/fiddler工作原理.jpg" alt="fiddler原理">
 
 - **工作页面**
@@ -38,6 +39,7 @@
 配置时需填写host名字
 
 * 跨域设置，允许跨域
+
 <img src="./resource/images/kuayu.png" alt="支持的格式">
 设置set response header 选项：Access-Control-Allow-Origin：http://localhost:8080。设置完即可跨域（已测试）。
 
@@ -58,6 +60,7 @@
 达到替换的原因：这个些规则，就是将请求服务器端的资源，经过fiddler时将本地的文件返回，这样就可以达到，其他资源是线上的，要修改的目标是本地的。
 
 拦截后的fiddler工作示意图：
+
 <img src="./resource/images/fiddler拦截后.png" alt="支持的格式">
 
 #### Fiddler 替换一组文件
@@ -69,6 +72,12 @@
 *使用正则
 匹配路径：regex: ^http://114.55.104.12:7048/static/([\w]+)/([\w\.]+)[^/]*$
 目标目录：E:\adv\adv-admin\src\main\webapp\static\src\$1\$2
+
+#### 本地调试
+例如： 
+* regex:^http://coop.fat.xin.com/paymentv2?
+* *redir:http://m.rd.xin.com:3000/paymentv2
+可以将线上的代码替换到本地代码。
 
 ###  fiddler 的其它功能
 * Fiddler 验证修改效果
@@ -88,7 +97,6 @@
 
 ### 创建一个响应
 通常情况下，请求是正常的。如果我们在前端做了异常处理，如果我们想要一个非正常的请求怎么办？可能这种情况下，后台也不能快速满足我们的需求，此时就可以创建一个响应体。
-
 
 1. 创建一个拦截规则
 2. 在选择文件中选择Create New Response...
@@ -138,7 +146,6 @@ Content-Type: text/plain; charset=utf-8
 5. 如果拦截太多请求时，可以点击Go按钮，快速情况拦截。
 
 取消拦截：Rule→Automatic Breakpoints → Disabled
-
 
 ###Fiddler 中使用https
 
