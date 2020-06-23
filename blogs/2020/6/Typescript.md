@@ -4,6 +4,8 @@
 在 TypeScript-React-Starter 中有介绍开始方式。创建 react-scripts-ts的命令如下：
 > create-react-app my-app --scripts-version=react-scripts-ts
 
+* [官网例子](https://www.typescriptlang.org/play/index.html)
+
 
 1. 第一步：创建完 项目后，请阅读 react-typescript-cheatsheet 的文档，文档讲解了react 中的使用方式，并在 my-app 项目中进行练习。
 2. 参考 [ant-design](https://github.com/ant-design/ant-design) 和 [ant-design-pro](https://github.com/ant-design/ant-design-pro) 中的组件编写方式。

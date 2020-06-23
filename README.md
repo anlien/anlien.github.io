@@ -30,6 +30,7 @@
 * [es6一些技巧](./blogs/2020/5/es6一些技巧)
 * [变量声明](https://www.tslang.cn/docs/handbook/variable-declarations.html)
 * [模块](https://www.tslang.cn/docs/handbook/modules.html)
+* [Typescript](./blogs/2020/6/Typescript)
   
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
