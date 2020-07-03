@@ -32,6 +32,9 @@
 * [模块](https://www.tslang.cn/docs/handbook/modules.html)
 * [Typescript](./blogs/2020/6/Typescript)
 * [source map](./blogs/2020/7/sourceMap)
+* [croll-snap-type](https://css-tricks.com/almanac/properties/s/scroll-snap-type/)
+* [-webkit-overflow-scrolling](https://www.cnblogs.com/xiahj/p/8036419.html)
+* [git commit前检测](./blogs/2020/7/git_commit前检测)
   
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
