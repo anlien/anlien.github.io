@@ -1,3 +1,82 @@
+# React Api （16.13.1）
+```js
+{
+  Children:{
+    map: ()=> void,
+    forEach: ()=> void,
+    count: ()=> void,
+    toArray: ()=> void,
+    only: ()=> void
+  },
+  Component: function Component(props,context,updater){},
+  PureComponent: function PureComponent(props, context, updater){},
+
+  Fragment: Symbol(react.fragment),
+  Profiler: Symbol(react.profiler),
+  StrictMode: Symbol(react.strict_mode),
+  Suspense: Symbol(react.suspense),
+  lazy: function lazy(ctor){},
+
+  cloneElement: function cloneElementWithValidation(element, props, children){},
+  createContext: function createContext(defaultValue, calculateChangedBits){},
+  createElement: function createElementWithValidation(type, props, children){},
+  createFactory: function createFactoryWithValidation(type){},
+
+  createRef: function createRef(){},
+  forwardRef: function forwardRef(render){},
+
+  isValidElement: function isValidElement(object){},
+
+  memo: function memo(type, compare){},
+
+  useCallback: function useCallback(callback, deps){},
+  useContext: function useContext(Context, unstable_observedBits){},
+  useDebugValue: function useDebugValue(value, formatterFn){},
+  useEffect: function useEffect(create, deps){},
+  useImperativeHandle: function useImperativeHandle(ref, create, deps){},
+  useLayoutEffect: function useLayoutEffect(create, deps){},
+  useMemo: function useMemo(create, deps){},
+  useReducer: function useReducer(reducer, initialArg, init){},
+  useRef: function useRef(initialValue){},
+  useState: function useState(initialState){},
+
+  version: "16.13.1"
+}
+```
+# React 生命周期
+## Mounting（挂载）
+当组件实例被创建并插入 DOM 中时，其生命周期调用顺序如下：
+
+* [constructor()](https://reactjs.org/docs/react-component.html#constructor)
+* [static getDerivedStateFromProps()](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+* [render()](https://reactjs.org/docs/react-component.html#render)
+* [componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount)
+
+## Updating(更新)
+* [static getDerivedStateFromProps()](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+* [shouldComponentUpdate()](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
+* [render()](https://reactjs.org/docs/react-component.html#render)
+* [getSnapshotBeforeUpdate()](https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+* [componentDidUpdate()](https://reactjs.org/docs/react-component.html#componentdidupdate)
+
+## Unmounting(卸载)
+* [componentWillUnmount()](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+## Error Handling(错误处理)
+*  [static getDerivedStateFromError()](https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror)
+*  [componentDidCatch()](https://reactjs.org/docs/react-component.html#componentdidcatch)
+
+## Other APIs
+* [setState()](https://reactjs.org/docs/react-component.html#setstate)
+* [forceUpdate()](https://reactjs.org/docs/react-component.html#forceupdate)
+
+## Class Properties
+* [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+* [displayname](https://reactjs.org/docs/react-component.html#displayname)
+
+## Instance Properties
+* [props](https://reactjs.org/docs/react-component.html#props)
+* [state](https://reactjs.org/docs/react-component.html#state)
 
 # [React.Component](https://zh-hans.reactjs.org/docs/react-api.html#reactcomponent)
 React.Component 是使用 ES6 classes 方式定义 React 组件的基类。
@@ -39,6 +118,7 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值。
 
 # Hook
+长远来看，我们期望 Hook 能够成为人们编写 React 组件的主要方式。
 ### callback ref
 ```js
 function MeasureExample() {
