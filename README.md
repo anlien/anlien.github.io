@@ -35,6 +35,8 @@
 * [croll-snap-type](https://css-tricks.com/almanac/properties/s/scroll-snap-type/)
 * [-webkit-overflow-scrolling](https://www.cnblogs.com/xiahj/p/8036419.html)
 * [git commit前检测](./blogs/2020/7/git_commit前检测)
+* [bug](./blogs/2020/7/bug)
+* [国内低代码平台](https://github.com/taowen/awesome-lowcode)
   
 # 项目
 * [二手车首页及详情页 重构](http://m.xin.com/)
