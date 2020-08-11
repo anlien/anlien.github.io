@@ -147,10 +147,10 @@ dp(dip)：device independent pixele(设备独立像素)。不同设备有不同�
 [参考 机型种类](https://material.io/devices/)
 
 ### 参考
-[1px-on-retina  百度](http://efe.baidu.com/blog/1px-on-retina/)
-[在retina屏中实现1px border效果](http://imweb.io/topic/55e3d402771670e207a16bd1)
-[7中方法总结](https://www.jianshu.com/p/7e63f5a32636)
-
+* [1px-on-retina  百度](http://efe.baidu.com/blog/1px-on-retina/)
+* [在retina屏中实现1px border效果](http://imweb.io/topic/55e3d402771670e207a16bd1)
+* [7中方法总结](https://www.jianshu.com/p/7e63f5a32636)
+* [CSS Pixels](http://www.alloyteam.com/2020/06/css-pixels/)
 
 
 
