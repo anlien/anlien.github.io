@@ -1,6 +1,7 @@
 # 2021
 * [vscode中可以查看eslint校验结果](./blogs/2021/esLint.md)
 * [CRLF](./blogs/2021/CRLF.md)
+* [下载base64格式图片](./blogs/2021/下载base64格式图片.md)
 # 目录
 2016年之前的代码，代码过于简单，基本上被删完了。
 * [2016年](./blogs/2016)
