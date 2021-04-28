@@ -1,6 +1,7 @@
 # require.js
 ```html
-
+<!--css 文件可以压缩成一个 -->
+<!--css 可以移除不使用的js -->
 <link href="http://test.www.miaoshoucdn.com/mcenter/greenservice/css/common.css" rel="stylesheet" type="text/css">
 <link href="http://test.www.miaoshoucdn.com/mcenter/greenservice/css/seekdoc.css" rel="stylesheet" type="text/css">
 <link href="http://test.www.miaoshoucdn.com/mcenter/greenservice/css/mobileSelect.css" rel="stylesheet"
