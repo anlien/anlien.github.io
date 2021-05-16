@@ -1,6 +1,10 @@
 
 
 # 2021
+* [bug: 部分手机不能打开短链接](./blogs/2021/部分手机不能打开短链接.md)
+* [优信](./blogs/2021/优信绩效考核.md)
+* [岗位](./blogs/2021/岗位.md)
+* [任职——社会要求](./blogs/2021/面试条件.md)
 * [vscode中可以查看eslint校验结果](./blogs/2021/esLint.md)
 * [CRLF](./blogs/2021/CRLF.md)
 * [下载base64格式图片](./blogs/2021/下载base64格式图片.md)
